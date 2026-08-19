@@ -6,8 +6,11 @@
     <title>Document</title>
 </head>
 <body>
+    <button onclick="onClick()">CLICK HERE TO GET A PROMPT</button>
     <script>
-        document.write("Your name is "+prompt("Enter your name.")+".")
+        function onClick() {
+            document.write(prompt("Give me a comment.")+"<br>- "+prompt("Give me your name."));
+        }
     </script>
 </body>
 </html>
