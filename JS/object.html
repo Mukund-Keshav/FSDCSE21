@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const student = {
+            name: "Mukund",
+            course: "B.Tech",
+            branch: "CSE",
+            sem: 5,
+            section: 21
+        }
+        document.write(JSON.stringify(student));
+        for (let i in student) document.write(i+": "+student[i]+"<br>");
+    </script>
+</body>
+</html>
