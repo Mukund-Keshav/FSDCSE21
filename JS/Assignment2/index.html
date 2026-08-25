@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login Page</title>
+    <style>
+        #login-box {
+            border: 3px solid black;
+            text-align: center;
+            padding: 10px;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .formelement {
+            margin: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="login-box">
+        <h1>User Login</h1>
+        <form>
+            <table>
+                <tr>
+                    <td><label for="username">Username</label></td>
+                    <td><input id="username" class="formelement" type="text" required></td>
+                </tr>
+                <tr>
+                    <td><label for="password">Password</label></td>
+                    <td><input id="password" class="formelement" type="password" required></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input id="submit" class="formelement" type="submit" onclick="event.preventDefault(); validate(login);"></td>
+                </tr>
+            </table>            
+            <div id="msg"></div>
+        </form>
+    </div>
+    <script>
+        let loginCredentials = {
+            mukund1932:"000000",
+            misbah1281:"444444",
+            mayank9104:"777777"
+        }
+        function login(username, element) {
+            element.innerHTML = "Login Successful. Welcome back, "+username+"!";
+        }
+        function validate(login) {
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+            let msg = document.getElementById("msg");
+            if (
+                username in loginCredentials
+                && loginCredentials[username] === password
+            ) {
+                login(username, msg);
+            }
+            else {
+                msg.innerHTML = "Incorrect Login Credentials! Check your Username and Password and try again!";
+            }
+        }
+    </script>
+</body>
+</html>
