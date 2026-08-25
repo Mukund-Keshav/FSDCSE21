@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Login Page</title>
     <style>
+        body {
+            background-color: lightskyblue;
+        }
         #login-box {
             border: 3px solid black;
             text-align: center;
@@ -12,9 +15,11 @@
             width: fit-content;
             margin-left: auto;
             margin-right: auto;
+            background-color: lightblue;
         }
         .formelement {
             margin: 30px;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -23,15 +28,15 @@
         <h1>User Login</h1>
         <form>
             <table>
-                <tr>
+                <tr class="formelement">
                     <td><label for="username">Username</label></td>
                     <td><input id="username" class="formelement" type="text" required></td>
                 </tr>
-                <tr>
+                <tr class="formelement">
                     <td><label for="password">Password</label></td>
                     <td><input id="password" class="formelement" type="password" required></td>
                 </tr>
-                <tr>
+                <tr class="formelement">
                     <td colspan="2"><input id="submit" class="formelement" type="submit" onclick="event.preventDefault(); validate(login);"></td>
                 </tr>
             </table>            
