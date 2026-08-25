@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Shop Portal</title>
+    <style>
+        body {
+            background-color: rgb(28, 29, 35);
+        }
+        .shopPanel {
+            background-color: rgb(30, 41, 59);
+            padding: 10px;
+            border: 3px solid black;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .shopPanel-heading {
+            text-align: center;
+            color: white;
+        }
+        #shopPanel-button {
+            background-color: rgb(28, 29, 35);
+            color: white;
+            margin-left: 48%;
+            margin-right: auto
+        }
+        .shopPanel-text {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="shopPanel">
+        <h3 class="shopPanel-heading">Online Shop Portal</h3>
+        <ul class="shopPanel-text">
+            <li>Standard Laptop: Rs.32,240</li>
+            <li>Standard Wireless Mouse Pointer: Rs.980</li>
+            <li>Standard Wireless Keyboard: Rs.820</li>
+            <li>Standard Laptop Cooler: Rs.1,220</li>
+            <li>Standard USB-A-to-A Cord: Rs.280</li>
+            <li>Standard USB-C-to-C Cord: Rs.310</li>
+        </ul>
+        <button id="shopPanel-button" onclick="buy()">Buy Now</button>
+    </div>
+    <script>
+        let prices = {
+                        laptop: ["Standard Laptop",32240],
+                        mouse: ["Standard Wireless Mouse Pointer",980],
+                        keyboard: ["Standard Wireless Keyboard",820],
+                        cooler: ["Standard Laptop Cooler",1220],
+                        a2a: ["Standard USB-A-to-A Cord",280],
+                        c2c: ["Standard USB-C-to-C Cord",310]
+        }
+        function buy() {
+            let quant = 0, total = 0;
+            let text = "<div class='shopPanel'><h4 class='shopPanel-heading'>Purchase Receipt</h4><br>"
+            for (i in prices) {
+                quant = prompt("Item: "+prices[i][0]+"; Price: Rs."+prices[i][1]+"; Quantity:");
+                if (quant > 0) {
+                    text = text + "<img src='"+i+".jpg'><br><p class='shopPanel-text'>"+prices[i][0]+" - Price: Rs."+prices[i][1]+" - Quantity: "+quant+" - Amount: Rs."+quant*prices[i][1]+"<br>";
+                    total = total + quant*prices[i][1];
+                }
+            }
+        }
+    </script>
+</body>
+</html>
