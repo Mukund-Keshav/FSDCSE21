@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch</title>
+    <style>
+        table {
+            width: 80%;
+            margin: auto;
+            padding: 10px;
+            font-size: 25px;
+            color: red;
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+    <table style="width: 30%">
+        <thead>
+            <tr>
+                <th>Product</th>
+            </tr>
+        </thead>
+        <tbody id="data"></tbody>
+    </table>
+    <script>
+        const element = document.getElementById("data");
+        const URL="https://dummyjson.com/products";
+        async function loadTableData() {
+            try {
+                const result = await fetch(URL);
+                const data = await result.json();
+                console.log("DATA", data.products);
+                let row="";
+                data.products.map((i, index) => {
+                    row += `
+                    <tr><td>
+                        <div style="border: 2px solid black">
+                            <img src="${i.images[0]}" style="width:50%"> <br>
+                            S. No. ${index+1} <br>
+                            Title: ${i.title} <br>
+                            Category: ${i.category} <br>
+                            Price: ${i.price} <br>
+                        </div>
+                    </td></tr>
+                    `;
+                });
+                element.innerHTML = row;
+            } catch(e) {
+                console.log("error");
+            }
+        }
+        loadTableData();
+    </script>
+</body>
+</html>
